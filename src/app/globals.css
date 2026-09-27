@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #050814;
+  color: #fff;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Pastille onglet : coins hauts concaves (le bleu remonte en courbes
+   lisses de chaque côté, façon forma studio). Le masque découpe deux
+   quarts de cercle transparents aux angles hauts, le bleu du fond
+   apparaît à travers -> jonction fluide sans angle ni cassure. */
+.notch-scoop {
+  --r: 22px;
+  -webkit-mask:
+    radial-gradient(circle var(--r) at 0 0, transparent 98%, #000 100%),
+    radial-gradient(circle var(--r) at 100% 0, transparent 98%, #000 100%);
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(circle var(--r) at 0 0, transparent 98%, #000 100%),
+    radial-gradient(circle var(--r) at 100% 0, transparent 98%, #000 100%);
+  mask-composite: intersect;
+}
